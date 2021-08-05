@@ -5,8 +5,13 @@
   ],
   "packageRules": [
     {
-      "groupName": "Dev updates",
+      "groupName": "dev",
       "matchPaths": ["dev/"],
+      "versioning": "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+    },
+    {
+      "groupName": "prd",
+      "matchPaths": ["prd/"],
       "versioning": "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     }
   ]

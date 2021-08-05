@@ -23,8 +23,7 @@
     },
     {
       "groupName": "stack",
-      "matchPaths": ["**/modules/dummy_stack/**"],
-      "rangeStrategy": "bump"
+      "matchPaths": ["**/modules/dummy_stack/**"]
     }
   ]
 }

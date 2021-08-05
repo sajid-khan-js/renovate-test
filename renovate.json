@@ -10,15 +10,15 @@
   "packageRules": [
     {
       "groupName": "dev",
-      "matchPaths": ["**/infra/dev/**"]
+      "matchPaths": ["**/infra/dev/blah/**"]
     },
     {
       "groupName": "prd",
-      "matchPaths": ["**/infra/prd/**"]
+      "matchPaths": ["**/infra/prd/blah/**"]
     },
     {
       "groupName": "module",
-      "matchPaths": ["**/modules/dummy_module/**"]
+      "matchPaths": ["**/modules/dummy_module/blah/**"]
     },
     {
       "groupName": "stack",

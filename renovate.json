@@ -3,11 +3,10 @@
   "extends": [
     "config:base"
   ],
-  "terragrunt": {
-    "versioning": "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
-  },
   "packageRules": [
     {
+      "groupName": "Dev updates",
+      "matchPaths": ["dev/"],
       "versioning": "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     }
   ]

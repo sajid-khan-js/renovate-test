@@ -3,7 +3,7 @@
   "extends": [
     "config:base"
   ],
-  "dependencyDashboard": true
+  "dependencyDashboard": true,
   "packageRules": [
     {
       "groupName": "dev",
@@ -15,7 +15,7 @@
     },
     {
       "groupName": "module",
-      "matchPaths": ["**/modules/dummy_module/**"],
+      "matchPaths": ["**/modules/dummy_module/**"]
     },
     {
       "groupName": "stack",

@@ -3,6 +3,7 @@
   "extends": [
     "config:base"
   ],
+  "dependencyDashboard": true
   "packageRules": [
     {
       "groupName": "dev",
@@ -15,7 +16,6 @@
     {
       "groupName": "module",
       "matchPaths": ["**/modules/dummy_module/**"],
-      "versioning": "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     },
     {
       "groupName": "stack",

@@ -24,8 +24,7 @@
     },
     {
       "groupName": "stack",
-      "matchPaths": ["**/modules/dummy_stack/**"],
-      "rangeStrategy": "pin"
+      "matchPaths": ["**/modules/dummy_stack/**"]
     }
   ]
 }

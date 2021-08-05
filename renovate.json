@@ -4,7 +4,7 @@
     "config:base"
   ],
   "dependencyDashboard": true,
-  "commitMessageAction": "bump1",
+  "commitMessageAction": "bump2",
   "prHourlyLimit": 0,
   "packageRules": [
     {

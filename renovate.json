@@ -4,6 +4,7 @@
     "config:base"
   ],
   "dependencyDashboard": true,
+  "commitMessageAction": "bump",
   "packageRules": [
     {
       "groupName": "dev",

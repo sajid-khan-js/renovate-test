@@ -20,12 +20,12 @@
     {
       "groupName": "module",
       "matchPaths": ["**/modules/dummy_module/**"],
-      "rangeStrategy": "replace"
+      "rangeStrategy": "bump"
     },
     {
       "groupName": "stack",
       "matchPaths": ["**/modules/dummy_stack/**"],
-      "rangeStrategy": "bump"
+      "rangeStrategy": "replace"
     }
   ]
 }

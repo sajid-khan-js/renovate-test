@@ -7,7 +7,7 @@
   "commitMessageAction": "bump5",
   "prHourlyLimit": 0,
   "separateMajorMinor": false,
-  "rangeStrategy": "bump",
+
   "packageRules": [
     {
       "groupName": "dev",
@@ -19,7 +19,8 @@
     },
     {
       "groupName": "module",
-      "matchPaths": ["**/modules/dummy_module/**"]
+      "matchPaths": ["**/modules/dummy_module/**"],
+      "rangeStrategy": "bump"
     },
     {
       "groupName": "stack",

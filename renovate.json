@@ -5,6 +5,7 @@
   ],
   "dependencyDashboard": true,
   "commitMessageAction": "bump",
+  "prHourlyLimit": 0,
   "packageRules": [
     {
       "groupName": "dev",

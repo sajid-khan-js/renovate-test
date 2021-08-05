@@ -21,8 +21,14 @@ managers](https://docs.renovatebot.com/modules/manager/) in one place.
 - [infra](./infra) Terragrunt deployment files - Renovate will bump upstream
   module versions
   - `.terraform-version` and `.terragrunt-version` files are used by `tfenv` and
-      `tgevn` respectively - Renovate will bump the version numbers in these
+      `tgenv` respectively - Renovate will bump the version numbers in these
       files
 - [modules](./modules) Terraform modules - Renovate will bump provider and
   terraform version pins
 - [renovate.json](./renovate.json) - Config file for renovate
+
+## Renovate in action
+
+Check out the [close/merged
+PRs](https://github.com/sajid-khan-js/renovate-test/pulls?q=is%3Apr+is%3Aclosed)
+to see what renovate can do

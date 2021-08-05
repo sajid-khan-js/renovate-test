@@ -4,7 +4,7 @@
     "config:base"
   ],
   "dependencyDashboard": true,
-  "commitMessageAction": "bump4",
+  "commitMessageAction": "bump5",
   "prHourlyLimit": 0,
   "separateMajorMinor": false,
   "packageRules": [

@@ -6,23 +6,19 @@
   "packageRules": [
     {
       "groupName": "dev",
-      "matchPaths": ["dev/"],
-      "versioning": "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+      "matchPaths": ["infra/dev/**"]
     },
     {
       "groupName": "prd",
-      "matchPaths": ["prd/"],
-      "versioning": "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+      "matchPaths": ["infra/prd/**"]
     },
     {
       "groupName": "module",
-      "matchPaths": ["dummy_module/"],
-      "versioning": "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+      "matchPaths": ["modules/dummy_module/**"]
     },
     {
       "groupName": "stack",
-      "matchPaths": ["dummy_stack/"],
-      "versioning": "regex:^((?<compatibility>.*)-v|v*)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+      "matchPaths": ["modules/dummy_stack/**"]
     }
   ]
 }

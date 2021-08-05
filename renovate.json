@@ -4,21 +4,21 @@
     "config:base"
   ],
   "dependencyDashboard": true,
-  "commitMessageAction": "bump3",
+  "commitMessageAction": "bump4",
   "prHourlyLimit": 0,
   "separateMajorMinor": false,
   "packageRules": [
     {
       "groupName": "dev",
-      "matchPaths": ["**/infra/dev/blah/**"]
+      "matchPaths": ["**/infra/dev/**"]
     },
     {
       "groupName": "prd",
-      "matchPaths": ["**/infra/prd/blah/**"]
+      "matchPaths": ["**/infra/prd/**"]
     },
     {
       "groupName": "module",
-      "matchPaths": ["**/modules/dummy_module/blah/**"]
+      "matchPaths": ["**/modules/dummy_module/**"]
     },
     {
       "groupName": "stack",

@@ -2,5 +2,29 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base"
+  ],
+  "dependencyDashboard": true,
+  "commitMessageAction": "bump5",
+  "prHourlyLimit": 0,
+  "separateMajorMinor": false,
+
+  "packageRules": [
+    {
+      "groupName": "dev",
+      "matchPaths": ["**/infra/dev/**"]
+    },
+    {
+      "groupName": "prd",
+      "matchPaths": ["**/infra/prd/**"]
+    },
+    {
+      "groupName": "module",
+      "matchPaths": ["**/modules/dummy_module/**"]
+    },
+    {
+      "groupName": "stack",
+      "matchPaths": ["**/modules/dummy_stack/**"],
+      "rangeStrategy": "bump"
+    }
   ]
 }

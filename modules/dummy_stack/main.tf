@@ -14,5 +14,5 @@ resource "random_id" "random" {
 }
 
 module "null" {
-  source = "github.com/cloudposse/terraform-null-label?ref=0.24.0"
+  source = "github.com/cloudposse/terraform-null-label?ref=0.24.1"
 }

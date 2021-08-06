@@ -12,3 +12,7 @@ resource "random_pet" "pet_name" {
 resource "random_id" "random" {
   byte_length = 2
 }
+
+module "null" {
+  source = "github.com/cloudposse/terraform-null-label?ref=0.24.0"
+}

@@ -76,6 +76,63 @@ needed. Read more
   latest version is `1.0.4`, bumping to `1.0.0` will still make the stack usable
   by anyone running terraform version `1.0.X`
 
+##### Testing modules
+
+It may seem counterintuitive to use flexible pins (e.g. `~>` or even `=>`) for
+modules in the context of testing. In theory, the same tests that run against
+the same module may use a different provider:
+
+Given the provider pin like so `version = "~> 2.0"`
+
+- On Monday, tests against `dummy_stack` are run, terraform downloads the latest
+  version (`2.1.1`) of the `random` provider.
+- On Tuesday, a new version of the `random` provider is released (`2.2.0`)
+- On Wednesday, tests are run again, against `dummy_stack`, terraform downloads
+  the latest version (`2.2.0`) of the `random` provider.
+
+So, should you use a static pin e.g. `version = "2.1.1"` to ensure the same
+provider is always used when testing?
+
+In short, No.
+
+###### In more detail
+
+There is a huge downside to using static pins. Modules that consume your module
+will be forced to use the exact same pin. This can be problematic if a module is
+consuming multiple modules all with different static pins. It's better to have
+some flexibility to save yourself from having to figure out complex dependency
+graphs and a convoluted rollout e.g. update module A, then B, then C, rather
+than simply update any module in any sequence. In addition, if you consume
+community based modules e.g. [these GCP
+modules](https://github.com/terraform-google-modules), you have no direct
+control over how they pin providers. [HashiCorp themselves recommend the
+practice of flexible pins for
+providers](https://www.terraform.io/docs/language/expressions/version-constraints.html#terraform-core-and-provider-versions)
+
+###### Mitigation
+
+Although testing in general should limit variables, the purposes of testing
+terraform modules is to ensure you don't release a module that's broken. Does
+this infra code work with the respective Cloud API? In other words, does my
+terraform that is trying to create a storage bucket A) create the bucket B)
+configure the bucket as intended by the terraform config?
+
+There is then a slim chance at runtime that your terraform module may not work
+with a provider within your range since you may not have tested against it e.g.
+`~> 2.0` will allow `2.0.1`, `2.1.0`, `2.2.0` etc.
+
+You should be running `terraform plan` before you run `terraform apply`, and
+your `terraform plan` output should be visible and reviewed before `terraform
+apply` is run e.g. [atlantis](https://www.runatlantis.io/), [GitHub
+actions](https://github.com/dflook/terraform-github-actions/tree/master/terraform-plan).
+Doing so negates the slim chance a new `patch` (`0.0.X`) or `major` (`0.X.X`)
+version of the provider will break your infra.
+
+Furthermore, module/stacks should be released (i.e. `terraform apply`) in lower
+environment first:
+
+![terraform_promotion](terraform_promotion.png)
+
 ### [Renovate config](./renovate.json)
 
 Config file for renovate.

@@ -88,3 +88,71 @@ configuration options
 Check out the [close/merged
 PRs](https://github.com/sajid-khan-js/renovate-test/pulls?q=is%3Apr+is%3Aclosed)
 to see what renovate can do
+
+### Grouping dependency updates
+
+> "Generally, the first reaction people have to automated dependency updates
+like Renovate is "oh great/feel the power of automation". The next reaction a
+few days or weeks later is often "this is getting overwhelming".Indeed, if you
+leave Renovate on its default settings of raising a PR every single time any
+dependency receives any update.. you will get a lot of PRs and related
+notifications"
+
+The above quote is from [here](https://docs.renovatebot.com/noise-reduction/)
+
+Given this directory structure:
+
+```text
+├── infra
+│   ├── dev
+│   │   └── deployment
+│   │       └── terragrunt.hcl
+│   └── prd
+│       └── deployment
+│           └── terragrunt.hcl
+├── modules
+│   ├── dummy_module
+│   │   ├── README.md
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   ├── variables.tf
+│   │   └── versions.tf
+│   └── dummy_stack
+│       ├── README.md
+│       ├── main.tf
+│       ├── outputs.tf
+│       ├── terraform.tfstate
+│       ├── variables.tf
+│       └── versions.tf
+```
+
+We want to group dependency updates by env (e.g. one PR to update all of `dev`)
+and by module/stack (e.g. one PR to update everything in `dummy_stack`).
+
+You can achieve this in Renovate by using `packageRules`. You can group
+directories with a static rule e.g.
+
+```json
+"packageRules": [
+    {
+      "groupName": "dev",
+      "matchPaths": ["**/infra/dev/**"]
+    }
+]
+```
+
+or by using a dynamic rule e.g.
+
+```json
+"packageRules": [
+   {
+      "groupName": "{{parentDir}}",
+      "additionalBranchPrefix": "{{parentDir}}-",
+      "matchPaths": ["**/modules/**"]
+    }
+]
+```
+
+Dynamic rules are useful for repos that have a high change rate e.g. a terraform
+modules repo where new modules are regularly created, this means you don't have
+to remember to create a rule every time you create a new terraform module.

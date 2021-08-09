@@ -9,20 +9,8 @@
 
   "packageRules": [
     {
-      "groupName": "dev",
-      "matchPaths": ["**/infra/dev/**"]
-    },
-    {
-      "groupName": "prd",
-      "matchPaths": ["**/infra/prd/**"]
-    },
-    {
-      "groupName": "module",
-      "matchPaths": ["**/modules/dummy_module/**"]
-    },
-    {
-      "groupName": "stack",
-      "matchPaths": ["**/modules/dummy_stack/**"]
+      "groupName": "{{parentDir}}",
+      "additionalBranchPrefix": "{{parentDir}}-"
     }
   ]
 }

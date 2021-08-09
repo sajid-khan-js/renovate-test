@@ -10,7 +10,8 @@
   "packageRules": [
     {
       "groupName": "{{parentDir}}",
-      "additionalBranchPrefix": "{{parentDir}}-"
+      "additionalBranchPrefix": "{{parentDir}}-",
+      "matchPaths": ["**"]
     }
   ]
 }

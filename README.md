@@ -28,12 +28,11 @@ experiment:
 ```sh
 npm i -g renovate
 export RENOVATE_TOKEN=<my GitHub token>
-LOG_LEVEL=debug renovate --autodiscover --autodiscover-filter sajid-khan-js/renovate-test
+LOG_LEVEL=debug renovate sajid-khan-js/renovate-test
 ```
 
-It's also handy to run this after you make changes to your config
-(`renovate.json`) `renovate-config-validator` (comes with npm install of
-renovate)
+It's also handy to run `renovate-config-validator` (comes with npm install of
+renovate) before pushing changes to your config file (`renovate.json`).
 
 ## Structure
 
@@ -125,7 +124,7 @@ You should be running `terraform plan` before you run `terraform apply`, and
 your `terraform plan` output should be visible and reviewed before `terraform
 apply` is run e.g. [atlantis](https://www.runatlantis.io/), [GitHub
 actions](https://github.com/dflook/terraform-github-actions/tree/master/terraform-plan).
-Doing so negates the slim chance a new `patch` (`0.0.X`) or `major` (`0.X.X`)
+Doing so negates the slim chance a new `patch` (`0.0.X`) or `minor` (`0.X.X`)
 version of the provider will break your infra.
 
 Furthermore, module/stacks should be released (i.e. `terraform apply`) in lower
